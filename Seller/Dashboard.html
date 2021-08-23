@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyAAlHkUEDICq8s1Q90t96YaMnSYMRDU5-0",
+            authDomain: "hackathon-testapp.firebaseapp.com",
+            projectId: "hackathon-testapp",
+            storageBucket: "hackathon-testapp.appspot.com",
+            messagingSenderId: "555262218909",
+            appId: "1:555262218909:web:71c79bf7c467bee5ccba74",
+            measurementId: "G-YBKH49SWKH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- HTML -->
+    <!-- Header -->
+    <!-- header -->
+    <div class="Nav-header">
+        <img src="../Images/food-logo.jpg" alt="logo" class="header-logo">
+        <button class="dashboard-log-out" onclick="sellerSignOut()">Log out</button>
+    </div>
+    <!-- Main -->
+    <h1 class="dashboard-h1">Dashboard</h1>
+
+    <div class="analytic-btns">
+        <a href="Pending.html"><button class="analytic-btn">Pending</button></a><br>
+        <a href="Accepted.html"><button class="analytic-btn">Accepted</button></a><br>
+        <a href="Delievered.html"><button class="analytic-btn">Delivered</button></a><br>
+    </div>
+    <!-- footer -->
+    <div class="footer" style="position: fixed; bottom: 0; left: 0;">
+        <p class="footer-end-tag">Built And Design By Muhammad Waqas Qadir</p>
+    </div>
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+</body>
+
+</html>

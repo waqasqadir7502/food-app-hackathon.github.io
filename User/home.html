@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyAAlHkUEDICq8s1Q90t96YaMnSYMRDU5-0",
+            authDomain: "hackathon-testapp.firebaseapp.com",
+            projectId: "hackathon-testapp",
+            storageBucket: "hackathon-testapp.appspot.com",
+            messagingSenderId: "555262218909",
+            appId: "1:555262218909:web:71c79bf7c467bee5ccba74",
+            measurementId: "G-YBKH49SWKH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="userObserver()">
+    <!-- HTMl -->
+    <!-- header -->
+    <nav class="navbar navbar-expand-md ">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#"><img src="../Images/food-logo.jpg" alt="food-logo" class="header-logo"></a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"><img src="../Images/caret-down-solid.svg" alt="more"
+                    class="more-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span class="caret">More</span></button>
+                        <ul class="dropdown-menu" style="padding: 0%;">
+                            <li><a href="#">Account Settings</a></li>
+                            <hr style="margin: 0;">
+                            <li><button class="log-out" onclick="userSignOut()">Log out</button></li>
+                        </ul>
+                    </div>
+        </div>
+
+        </li>
+        </ul>
+        </div>
+    </nav>
+    <!-- main -->
+
+    <!-- pakistani -->
+    <section class="main-content">
+        <div class="container">
+            <h1 class="text-center text-uppercase">Pakistani</h1>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="food-card">
+                        <div class="food-card_img">
+                            <img src="../Images/Biryani.jpg" alt="Biryani">
+                            <a href="#!"><i class="far fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Special Biryani</a>
+                                <a href="#!" class="food-card_author">Desi</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <div class="space-between">
+                                </div>
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 120/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="food-card food-card--vertical">
+                        <div class="food-card_img">
+                            <img src="../Images/Karahi.jpg" alt="">
+                            <a href="#!"><i class="fa fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Special Chicken Karahi</a>
+                                <a href="#!" class="food-card_author">Desi</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 450/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Italian -->
+    <section class="main-content">
+        <div class="container">
+            <h1 class="text-center text-uppercase">Italian</h1>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="food-card">
+                        <div class="food-card_img">
+                            <img src="../Images/pizza.jpg" alt="">
+                            <a href="#!"><i class="far fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Authentic Italian Pizza</a>
+                                <a href="#!" class="food-card_author">Italian</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 950/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="food-card food-card--vertical">
+                        <div class="food-card_img">
+                            <img src="../Images/Italian-spaghetti.jpg" alt="">
+                            <a href="#!"><i class="fa fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Spaghetti with meatballs</a>
+                                <a href="#!" class="food-card_author">Italian</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <div class="space-between">
+                                </div>
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 380/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-content">
+        <div class="container">
+            <h1 class="text-center text-uppercase">Chinese</h1>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="food-card">
+                        <div class="food-card_img">
+                            <img src="../Images/chinese-noodles.jpg" alt="">
+                            <a href="#!"><i class="far fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Chicken Chowmien</a>
+                                <a href="#!" class="food-card_author">Chinese</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <div class="space-between">
+                                </div>
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 350/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="food-card food-card--vertical">
+                        <div class="food-card_img">
+                            <img src="../Images/fried-rice.jpg" alt="">
+                            <a href="#!"><i class="fa fa-heart"></i></a>
+                        </div>
+                        <div class="food-card_content">
+                            <div class="food-card_title-section">
+                                <a href="#!" class="food-card_title">Fried Rice</a>
+                                <a href="#!" class="food-card_author">Chinese</a>
+                            </div>
+                            <div class="food-card_bottom-section">
+                                <div class="space-between">
+                                </div>
+                                <hr>
+                                <div class="space-between">
+                                    <div class="food-card_price">
+                                        <span>Rs 320/-</span>
+                                    </div>
+                                    <div class="food-card_order-count">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            </div>
+                                            <div class="input-group-append">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+
+<section class="order" id="order">
+
+    <h1 class="heading" style="text-align: center;"> Order Now </h1>
+    <h3 class="sub-heading" style="text-align: center;">  Free And Fast </h3>
+    
+    <div class="form">
+
+        <div class="inputBox">
+        <div class="inputBox">
+            <div class="input">
+                <span>Your Order</span>
+                <input type="text" placeholder="enter food name" id="order">
+            </div>
+            <div class="input">
+                <span>Additional Food</span>
+                <input type="text" placeholder="extra with food" id="additional-food">
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>quantity</span>
+                <input type="number" placeholder="how many orders" id="quantity">
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>Your Address</span>
+                <textarea placeholder="enter your address" id="address" cols="30" rows="10"></textarea>
+            </div>
+            <div class="input">
+                <span>your message</span>
+                <textarea placeholder="enter your message" id="message" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+
+        <button class="order-btn" onclick="getOrder()">Orde Now</button>
+
+    </div>
+
+</section>
+
+<!-- order section ends -->
+    <!-- footer -->
+    <div class="home-page-footer">
+        <p class="home-footer-end-tag">Built And Design By Muhammad Waqas Qadir</p>
+    </div>
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
